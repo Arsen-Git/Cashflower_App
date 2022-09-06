@@ -1,0 +1,50 @@
+.tabs {
+  background-color: black;
+  &__content {
+    padding: 20px 90px;
+    display: flex;
+    gap: 24px;
+  }
+  &__btn {
+    cursor: pointer;
+    width: 185px;
+    height: 45px;
+    border: 1px solid #ffffff;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 15px;
+    /* identical to box height, or 100% */
+
+    color: #ffffff;
+    background-color: black;
+    transition: transform 0.2s linear;
+    &-active {
+      border: 1px solid #ff632d;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  &__modalBtn {
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+    background-color: #ff632d;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__line {
+      height: 1px;
+      width: 16px;
+      background-color: white;
+    }
+    &__line:first-child {
+      transform: translateX(8px) rotate(90deg);
+    }
+    &__line:last-child {
+      transform: translateX(-8px);
+    }
+  }
+}

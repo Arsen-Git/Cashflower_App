@@ -14,5 +14,19 @@ export default{
             body: JSON.stringify(user)
         });
         return await res.json();
+    },
+    async getWallets(id){
+        let res = await fetch(`${host}/api/wallets/${id}`)
+        return await res.json();
+    },
+    async saveWallet(wallet){
+        let res = await fetch(`${host}/api/wallets`,{
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(wallet)
+        });
+        return await res.json();
     }
 }

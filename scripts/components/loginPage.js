@@ -1,6 +1,8 @@
 import {cleanPage, storage} from "../utils.js";
 import API from "../API.js";
 import navBar from "./navBar.js"
+import navTabs from "./navTabs.js";
+import walletPage from "./walletPage.js";
 
 export default {
     elements:{
@@ -41,7 +43,7 @@ export default {
         }
         document.querySelector(".form").insertAdjacentElement("beforeend", formBtn);
 
-        formBtn.onclick =  e => this.loginSubmit(e);
+        formBtn.onclick = e => this.loginSubmit(e);
     },
     setFormTitle(){
         return storage.getItem("newUser")? "Sign in" : "Log in";
@@ -62,6 +64,8 @@ export default {
                     storage.setItem("user", user);
                     cleanPage();
                     navBar.render();
+                    navTabs.render();
+                    walletPage.render();
                 }else{
                     title.textContent = "Не знайдено користувача за поданим ім'ям та паролем!";
                     title.style.color = "red";
