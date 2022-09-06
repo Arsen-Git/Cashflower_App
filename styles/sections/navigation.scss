@@ -1,0 +1,38 @@
+.nav {
+  width: 100vw;
+  background-color: black;
+  &__container {
+    padding: 30px 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 30px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #f3f3f3;
+  }
+  &__account {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+    &__link {
+      text-decoration: none;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      /* identical to box height */
+
+      color: #ffffff;
+    }
+    &__img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
