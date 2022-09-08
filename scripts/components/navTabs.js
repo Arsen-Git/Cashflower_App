@@ -1,4 +1,7 @@
+import { REASONS } from "../utils";
 import modal from "./modal";
+import transactionPage from "./transactionPage";
+import walletPage from "./walletPage";
 
 export default {
     html:{
@@ -25,8 +28,33 @@ export default {
                     btn.classList.remove("tabs__btn-active")
                 })
                 e.target.classList.add("tabs__btn-active")
+                switch(e.target.textContent){
+                    case "Гаманці":
+                        document.querySelector(".content").remove();
+                        walletPage.render();
+                        break;
+                    case "Усі витрати":
+                        document.querySelector(".content").remove();
+                        transactionPage.render("OUTCOME");
+                        break;
+                    case "Усі надходження":
+                        document.querySelector(".content").remove();
+                        transactionPage.render("INCOME");
+                        break;
+                }
             }else if(e.target.className == "tabs__modalBtn"){
-                modal.render();
+                const activeTabText = document.querySelector(".tabs__btn-active").textContent;
+                switch(activeTabText){
+                    case "Гаманці":
+                        modal.render(REASONS.ADDWALLET);
+                        break;
+                    case "Усі витрати":
+                        modal.render(REASONS.ADDOUTCOMETRANS);
+                        break;
+                    case "Усі надходження":
+                        modal.render(REASONS.ADDINCOMETRANS);
+                        break;
+                }
             }
         }
     }

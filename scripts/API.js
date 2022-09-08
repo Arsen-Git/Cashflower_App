@@ -28,5 +28,19 @@ export default{
             body: JSON.stringify(wallet)
         });
         return await res.json();
+    },
+    async getTransactions(){
+        let res = await fetch(`${host}/api/transactions`)
+        return await res.json();
+    },
+    async saveTransaction(transaction){
+        let res = await fetch(`${host}/api/transactions`,{
+            method: 'post',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(transaction)
+        });
+        return await res.json();
     }
 }

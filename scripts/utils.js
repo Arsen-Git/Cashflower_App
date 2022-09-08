@@ -13,3 +13,10 @@ deleteItem(key){
 export function cleanPage(target = document.body){
     target.innerHTML = "";
 }
+
+export const REASONS = Object.freeze({
+    ADDWALLET: "wallet",
+    ADDINCOMETRANS: "incomeTransactions",
+    ADDOUTCOMETRANS: "outcomeTransaction",
+    ADDCATEGORY: "category"
+})

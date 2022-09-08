@@ -7,9 +7,7 @@ export default{
         <section class="content">
             <div class="wallets">
             </div>
-        </section>`,
-        wallet: `
-        `
+        </section>`
     },
     async render(parent = document.querySelector(".nav")){
         parent.insertAdjacentHTML("afterend", this.html.content)
@@ -22,7 +20,10 @@ export default{
         wallets.forEach(wallet=>{
             walletsContainer.insertAdjacentHTML("beforeend",`
                 <div class="wallet">
-                    <h2 class="wallet__title">${wallet.name}</h2>
+                    <div class="wallet__text__group">
+                        <h2 class="wallet__title">${wallet.name}</h2>
+                        <p class="wallet__title">${wallet.id}</p>
+                    </div>
                     <div class="wallet__text__group">
                         <p class="wallet__text">Залишок</p>
                         <p class="wallet__text">${wallet.balance}</p>
