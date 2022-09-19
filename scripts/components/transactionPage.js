@@ -1,5 +1,4 @@
 import API from "../API"
-import { storage } from "../utils"
 
 export default{
     html:{

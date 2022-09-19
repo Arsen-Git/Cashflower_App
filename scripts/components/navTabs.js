@@ -1,4 +1,5 @@
 import { REASONS } from "../utils";
+import categoriesPage from "./categoriesPage";
 import modal from "./modal";
 import transactionPage from "./transactionPage";
 import walletPage from "./walletPage";
@@ -41,6 +42,9 @@ export default {
                         document.querySelector(".content").remove();
                         transactionPage.render("INCOME");
                         break;
+                    case "Категорії":
+                        document.querySelector(".content").remove();
+                        categoriesPage.render();
                 }
             }else if(e.target.className == "tabs__modalBtn"){
                 const activeTabText = document.querySelector(".tabs__btn-active").textContent;

@@ -25,6 +25,7 @@ export default{
 
         document.querySelector(".modal").onclick = e =>{
             if(e.target.className == "modal"){
+                document.querySelector(".modal__content").reset();
                 document.querySelector(".modal").remove();
             }
         }
@@ -110,6 +111,7 @@ export default{
                     const walletBallance = document.getElementById("ballance").value;
                     if(walletName.length > 0 && walletBallance.length > 0){
                         const savedWallet = await API.saveWallet({name:walletName, owner: storage.getItem("user")[0].id, balance: +walletBallance})
+                        document.querySelector(".modal__content").reset();
                         document.querySelector(".content").remove();
                         walletPage.render();
                     }
@@ -120,6 +122,7 @@ export default{
                     let transAmount = document.getElementById("transAmount").value;
                     if(transCategory.length > 0 && transWallet.length > 0 && transAmount > 0){
                         const savedTransaction = await API.saveTransaction({type: "OUTCOME", category: transCategory, owner: storage.getItem("user")[0].id, wallet: transWallet, amount: transAmount, comment: "..."})
+                        document.querySelector(".modal__content").reset();
                         document.querySelector(".content").remove();
                         transactionPage.render("OUTCOME");
                     }
@@ -130,6 +133,7 @@ export default{
                     let transAmount2 = document.getElementById("transAmount").value;
                     if(transCategory2.length > 0 && transWallet2.length > 0 && transAmount2 > 0){
                         const savedTransaction = await API.saveTransaction({type: "INCOME", category: transCategory2, owner: storage.getItem("user")[0].id, wallet: transWallet2, amount: transAmount2, comment: "..."})
+                        document.querySelector(".modal__content").reset();
                         document.querySelector(".content").remove();
                         transactionPage.render("INCOME");
                     }
